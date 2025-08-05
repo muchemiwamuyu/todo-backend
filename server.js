@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDb from './config/db.js';
+import taskRoutes from './routes/taskRoutes.js'
 
 dotenv.config();
 const app = express()
@@ -26,6 +27,8 @@ const startServer = async () => {
                 res.status(500).json({message: 'Failed to fetch tasks'})
             }
         });
+
+        app.use('/api', taskRoutes);
 
         app.listen(port, () => console.log(`server running on port ${port}`));
     } catch (error) {
