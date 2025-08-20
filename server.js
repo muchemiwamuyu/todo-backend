@@ -14,7 +14,7 @@ app.use(express.json());
 
 // enable cors
 app.use(cors({
-    origin: 'https://todo-application-omega-two.vercel.app',
+    origin: ['https://todo-application-omega-two.vercel.app', 'http://localhost:5173'],
     credentials: true
 }));
 
